@@ -5,10 +5,6 @@ import { Sidebar} from "./components/Sidebar"
 import './global.css'
 import styles from './App.module.css'
 
-// author: {avatara_url: "" name:"" , role: ""}
-//publishedAt: Date
-//content: string
-
 const posts = [
   {
     id: 1,
@@ -51,8 +47,15 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          {posts.map(()=>{
-            
+          {posts.map(({id, author, content, publishedAt}) => {
+            return (
+              <Post 
+                key={id} 
+                author={author} 
+                content={content} 
+                publishedAt={publishedAt}
+              />
+            )
           })}
         </main>
       </div>
